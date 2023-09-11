@@ -1,3 +1,5 @@
+import UserList from "./UserList";
+
 export default function ManageUsers() {
   let allUsers = [];
 
@@ -13,5 +15,9 @@ export default function ManageUsers() {
   }
   handleFetchUsers();
 
-  return <div class="user-management"></div>;
+  return (
+    <div className="user-management">
+      <UserList />
+    </div>
+  );
 }
