@@ -10,10 +10,8 @@ export default function ManageUsers() {
           allUsers.push(user);
         }
       });
-    console.log(allUsers);
   }
-
-  <div class="user-management"></div>;
-
   handleFetchUsers();
+
+  return <div class="user-management"></div>;
 }
