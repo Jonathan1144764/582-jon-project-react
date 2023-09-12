@@ -12,12 +12,13 @@ export default function ManageUsers() {
           allUsers.push(user);
         }
       });
+    console.log(allUsers);
   }
   handleFetchUsers();
 
   return (
     <div className="user-management">
-      <UserList />
+      <UserList users={allUsers} />
     </div>
   );
 }
