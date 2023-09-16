@@ -1,3 +1,3 @@
-export default function CreateUsers() {
-  return <button>New User</button>;
+export default function CreateUsers({ handleCreateUsers }) {
+  return <button onClick={handleCreateUsers}>New User</button>;
 }
