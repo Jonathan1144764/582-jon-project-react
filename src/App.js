@@ -1,9 +1,9 @@
-import ManageUsers from "./components/ManageUsers";
+import MainHeader from "./components/MainHeader";
 
 function App() {
   return (
     <div className="App">
-      <ManageUsers />
+      <MainHeader />
     </div>
   );
 }
