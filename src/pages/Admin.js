@@ -8,7 +8,11 @@ export default function Admin() {
       <MainHeader />
       <AdminNav />
       <h2>This is Admin page</h2>
-      <Outlet />
+      <section className="admin-dashboard">
+        <div className="container">
+          <Outlet />
+        </div>
+      </section>
     </>
   );
 }
