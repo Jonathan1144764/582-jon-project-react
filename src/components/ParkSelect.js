@@ -1,8 +1,8 @@
-export default function ParkSelect({ parks }) {
+export default function ParkSelect({ parks, handleSelectPark }) {
   return (
     <>
       <label htmlFor="parks">Select park: </label>
-      <select name="parks" id="parks">
+      <select name="parks" id="parks" onChange={handleSelectPark}>
         <option></option>
         {parks.map((park) => {
           return (

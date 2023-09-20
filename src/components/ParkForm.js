@@ -8,6 +8,7 @@ import SubmitParkButton from "./SubmitParkButton";
 
 export default function ParkForm() {
   const [parks, setParks] = useState([]);
+  const [selectedPark, setSelectedPark] = useState({});
 
   useEffect(() => {
     handleFetchParks();
@@ -21,6 +22,23 @@ export default function ParkForm() {
       .then((json) => {
         setParks(json);
       });
+  }
+
+  function handleSelectPark(e) {
+    for (let i = 0; i < parks.length; i++) {
+      if (parks[i].parkName === e.target.value) {
+        setSelectedPark(parks[i]);
+        document.querySelector("#park-name-input").value = parks[i].parkName;
+        document.querySelector("#park-image-input").value = parks[i].parkImage;
+        document.querySelector(
+          `input[value="${parks[i].parkStatus}"]`
+        ).checked = true;
+        document.querySelector("#soccer").value = parks[i].soccerFields;
+        document.querySelector("#baseball").value = parks[i].baseballDiamonds;
+        document.querySelector("#chalet").value = parks[i].parkChalets;
+        document.querySelector("#playground").value = parks[i].parkPlaygrounds;
+      }
+    }
   }
 
   async function handleSubmitNewPark() {
@@ -72,7 +90,7 @@ export default function ParkForm() {
     let playgrounds = Number(document.querySelector("#playground").value);
 
     let updatedPark = {
-      // id: this.selectedPark.id,
+      id: selectedPark.id,
       parkName: name,
       parkImage: image,
       parkStatus: status,
@@ -112,7 +130,7 @@ export default function ParkForm() {
 
   return (
     <>
-      <ParkSelect parks={parks} />
+      <ParkSelect parks={parks} handleSelectPark={handleSelectPark} />
       <form className="park-form">
         <h2>Add Park</h2>
         <div className="name-image-inputs-wrapper">
