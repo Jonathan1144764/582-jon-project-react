@@ -58,6 +58,7 @@ export default function ParkForm() {
       console.log(error);
     }
     handleFormClear();
+    handleFetchParks();
   }
 
   function handleFormClear() {
