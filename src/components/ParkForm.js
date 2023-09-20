@@ -57,6 +57,17 @@ export default function ParkForm() {
     } catch (error) {
       console.log(error);
     }
+    handleFormClear();
+  }
+
+  function handleFormClear() {
+    document.querySelector("#park-name-input").value = "";
+    document.querySelector("#park-image-input").value = "";
+    document.querySelector('input[name="status"]:checked').checked = false;
+    document.querySelector("#soccer").value = 0;
+    document.querySelector("#baseball").value = 0;
+    document.querySelector("#chalet").value = 0;
+    document.querySelector("#playground").value = 0;
   }
 
   return (
