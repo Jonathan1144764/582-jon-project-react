@@ -61,6 +61,44 @@ export default function ParkForm() {
     handleFetchParks();
   }
 
+  async function handleUpdatePark() {
+    let name = document.querySelector("#park-name-input").value;
+    let image = document.querySelector("#park-image-input").value;
+    let status = document.querySelector('input[name="status"]:checked').value;
+    let soccer = Number(document.querySelector("#soccer").value);
+    let baseball = Number(document.querySelector("#baseball").value);
+    let chalets = Number(document.querySelector("#chalet").value);
+    let playgrounds = Number(document.querySelector("#playground").value);
+
+    let updatedPark = {
+      // id: this.selectedPark.id,
+      parkName: name,
+      parkImage: image,
+      parkStatus: status,
+      soccerFields: soccer,
+      baseballDiamonds: baseball,
+      parkChalets: chalets,
+      parkPlaygrounds: playgrounds,
+    };
+
+    try {
+      await fetch(
+        "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/updatepark",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedPark),
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    handleFormClear();
+    handleFetchParks();
+  }
+
   function handleFormClear() {
     document.querySelector("#park-name-input").value = "";
     document.querySelector("#park-image-input").value = "";
@@ -86,7 +124,10 @@ export default function ParkForm() {
           <ParkFacilitiesInput />
         </div>
       </form>
-      <SubmitParkButton handleSubmitNewPark={handleSubmitNewPark} />
+      <SubmitParkButton
+        handleSubmitNewPark={handleSubmitNewPark}
+        handleUpdatePark={handleUpdatePark}
+      />
     </>
   );
 }
