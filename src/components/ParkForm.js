@@ -115,6 +115,7 @@ export default function ParkForm() {
       console.log(error);
     }
     handleFormClear();
+    handleSelectClear();
     handleFetchParks();
   }
 
@@ -126,6 +127,10 @@ export default function ParkForm() {
     document.querySelector("#baseball").value = 0;
     document.querySelector("#chalet").value = 0;
     document.querySelector("#playground").value = 0;
+  }
+
+  function handleSelectClear() {
+    document.querySelector("#parks").value = "";
   }
 
   return (
