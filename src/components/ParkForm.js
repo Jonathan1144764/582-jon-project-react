@@ -22,6 +22,43 @@ export default function ParkForm() {
       });
   }
 
+  async function handleSubmitNewPark() {
+    let newId = parks[parks.length - 1].id + 1;
+    let name = document.querySelector("#park-name-input").value;
+    let image = document.querySelector("#park-image-input").value;
+    let status = document.querySelector('input[name="status"]:checked').value;
+    let soccer = Number(document.querySelector("#soccer").value);
+    let baseball = Number(document.querySelector("#baseball").value);
+    let chalets = Number(document.querySelector("#chalet").value);
+    let playgrounds = Number(document.querySelector("#playground").value);
+
+    let newPark = {
+      id: newId,
+      parkName: name,
+      parkImage: image,
+      parkStatus: status,
+      soccerFields: soccer,
+      baseballDiamonds: baseball,
+      parkChalets: chalets,
+      parkPlaygrounds: playgrounds,
+    };
+
+    try {
+      await fetch(
+        "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/newpark",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newPark),
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <form className="park-form">
@@ -37,7 +74,7 @@ export default function ParkForm() {
           <ParkFacilitiesInput />
         </div>
       </form>
-      <SubmitParkButton />
+      <SubmitParkButton handleSubmitNewPark={handleSubmitNewPark} />
     </>
   );
 }

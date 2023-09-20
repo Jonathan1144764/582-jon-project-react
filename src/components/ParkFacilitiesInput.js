@@ -25,8 +25,8 @@ export default function ParkFacilitiesInput() {
         <label htmlFor="chalet"> Chalets: </label>
         <input
           type="number"
-          name="bathrooms"
-          id="bathrooms"
+          name="chalet"
+          id="chalet"
           defaultValue="0"
           min="0"
         />
