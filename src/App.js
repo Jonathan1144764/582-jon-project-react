@@ -11,6 +11,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="admin" element={<Admin />}>
             <Route path="newpark" element={<ParkForm />} />
+            <Route path="updatepark" element={<ParkForm />} />
           </Route>
         </Routes>
       </BrowserRouter>
