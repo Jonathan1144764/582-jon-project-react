@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import ParkSelect from "./ParkSelect";
 import ParkNameInput from "./ParkNameInput";
 import ParkImageInput from "./ParkImageInput";
@@ -135,7 +136,9 @@ export default function ParkForm() {
 
   return (
     <>
-      <ParkSelect parks={parks} handleSelectPark={handleSelectPark} />
+      {useLocation().pathname.substring(6) === "/updatepark" && (
+        <ParkSelect parks={parks} handleSelectPark={handleSelectPark} />
+      )}
       <form className="park-form">
         <h2>Add Park</h2>
         <div className="name-image-inputs-wrapper">
