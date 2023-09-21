@@ -11,6 +11,8 @@ export default function ParkForm() {
   const [parks, setParks] = useState([]);
   const [selectedPark, setSelectedPark] = useState({});
 
+  let location = useLocation().pathname.substring(6);
+
   useEffect(() => {
     handleFetchParks();
   }, []);
@@ -136,11 +138,16 @@ export default function ParkForm() {
 
   return (
     <>
-      {useLocation().pathname.substring(6) === "/updatepark" && (
+      {location === "/updatepark" && (
         <ParkSelect parks={parks} handleSelectPark={handleSelectPark} />
       )}
       <form className="park-form">
-        <h2>Add Park</h2>
+        {location === "/newpark" ? (
+          <h2>Add Park</h2>
+        ) : (
+          <h2>Update/Delete Park</h2>
+        )}
+
         <div className="name-image-inputs-wrapper">
           <ParkNameInput />
           <ParkImageInput />
