@@ -122,6 +122,27 @@ export default function ParkForm() {
     handleFetchParks();
   }
 
+  async function handleDeletePark() {
+    let parkId = selectedPark.id;
+    try {
+      await fetch(
+        "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/updatepark",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: parkId }),
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    handleFormClear();
+    handleSelectClear();
+    handleFetchParks();
+  }
+
   function handleFormClear() {
     document.querySelector("#park-name-input").value = "";
     document.querySelector("#park-image-input").value = "";
@@ -162,6 +183,7 @@ export default function ParkForm() {
       <SubmitParkButton
         handleSubmitNewPark={handleSubmitNewPark}
         handleUpdatePark={handleUpdatePark}
+        handleDeletePark={handleDeletePark}
       />
     </>
   );
