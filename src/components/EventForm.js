@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import EventNameInput from "./EventNameInput";
 import ParkSelect from "./ParkSelect";
 import EventDatesInputs from "./EventDatesInputs";
+import EventDescriptionInput from "./EventDescriptionInput";
 
 export default function EventForm() {
   const [parks, setParks] = useState([]);
@@ -43,6 +44,7 @@ export default function EventForm() {
         <EventNameInput />
         <ParkSelect parks={parks} />
         <EventDatesInputs />
+        <EventDescriptionInput />
       </form>
     </>
   );
