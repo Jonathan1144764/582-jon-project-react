@@ -5,16 +5,19 @@ import ParkSelect from "./ParkSelect";
 import EventDatesInputs from "./EventDatesInputs";
 import EventDescriptionInput from "./EventDescriptionInput";
 import SubmitEventButton from "./SubmitEventButton";
+import EventSelect from "./EventSelect";
 
 export default function EventForm() {
   const [parks, setParks] = useState([]);
   //   const [events, setEvents] = useState([]);
   //   const [selectedEvent, setSelectedEvent] = useState({});
   let location = useLocation().pathname.substring(6);
+
   useEffect(() => {
     handleFetchParks();
     //     handleFetchEvents();
   }, []);
+
   async function handleFetchParks() {
     await fetch(
       "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin"
@@ -36,6 +39,7 @@ export default function EventForm() {
 
   return (
     <>
+      {location === "/updateevent" && <EventSelect />}
       <form>
         {location === "/newevent" ? (
           <h2>Add Event</h2>
