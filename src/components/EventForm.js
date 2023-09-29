@@ -69,6 +69,16 @@ export default function EventForm() {
     } catch (error) {
       console.log(error);
     }
+
+    handleFormClear();
+  }
+
+  function handleFormClear() {
+    document.querySelector("#event-name-input").value = "";
+    document.querySelector("#parks").value = "";
+    document.querySelector("#start-date-input").value = "";
+    document.querySelector("#end-date-input").value = "";
+    document.querySelector("#event-description-input").value = "";
   }
 
   return (
