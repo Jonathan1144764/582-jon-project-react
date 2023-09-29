@@ -4,6 +4,7 @@ import EventNameInput from "./EventNameInput";
 import ParkSelect from "./ParkSelect";
 import EventDatesInputs from "./EventDatesInputs";
 import EventDescriptionInput from "./EventDescriptionInput";
+import SubmitEventButton from "./SubmitEventButton";
 
 export default function EventForm() {
   const [parks, setParks] = useState([]);
@@ -46,6 +47,7 @@ export default function EventForm() {
         <EventDatesInputs />
         <EventDescriptionInput />
       </form>
+      <SubmitEventButton />
     </>
   );
 }
