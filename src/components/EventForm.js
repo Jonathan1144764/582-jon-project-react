@@ -38,6 +38,39 @@ export default function EventForm() {
       });
   }
 
+  async function handleSubmitNewEvent() {
+    let newId = events[events.length - 1].id + 1;
+    let name = document.querySelector("#event-name-input").value;
+    let location = document.querySelector("#parks").value;
+    let startDate = document.querySelector("#start-date-input").value;
+    let endDate = document.querySelector("#end-date-input").value;
+    let description = document.querySelector("#event-description-input").value;
+
+    let newEvent = {
+      id: newId,
+      eventName: name,
+      eventLocation: location,
+      eventStartDate: startDate,
+      eventEndDate: endDate,
+      eventDescription: description,
+    };
+
+    try {
+      await fetch(
+        "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/newevent",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newEvent),
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       {location === "/updateevent" && <EventSelect events={events} />}
@@ -52,7 +85,7 @@ export default function EventForm() {
         <EventDatesInputs />
         <EventDescriptionInput />
       </form>
-      <SubmitEventButton />
+      <SubmitEventButton handleSubmitNewEvent={handleSubmitNewEvent} />
     </>
   );
 }

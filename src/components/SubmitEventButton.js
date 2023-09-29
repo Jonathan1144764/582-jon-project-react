@@ -1,7 +1,7 @@
-export default function SubmitEventButton() {
+export default function SubmitEventButton({ handleSubmitNewEvent }) {
   return (
     <>
-      <button>Submit</button>
+      <button onClick={handleSubmitNewEvent}>Submit</button>
       <button>Update</button>
       <button>Delete</button>
     </>
