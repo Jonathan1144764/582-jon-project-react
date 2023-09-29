@@ -9,13 +9,13 @@ import EventSelect from "./EventSelect";
 
 export default function EventForm() {
   const [parks, setParks] = useState([]);
-  //   const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([]);
   //   const [selectedEvent, setSelectedEvent] = useState({});
   let location = useLocation().pathname.substring(6);
 
   useEffect(() => {
     handleFetchParks();
-    //     handleFetchEvents();
+    handleFetchEvents();
   }, []);
 
   async function handleFetchParks() {
@@ -27,19 +27,20 @@ export default function EventForm() {
         setParks(json);
       });
   }
-  //   async function handleFetchEvents() {
-  //     await fetch(
-  //       "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/newevent"
-  //     )
-  //       .then((response) => response.json())
-  //       .then((json) => {
-  //         setEvents(json);
-  //       });
-  //   }
+
+  async function handleFetchEvents() {
+    await fetch(
+      "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/updateevent"
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setEvents(json);
+      });
+  }
 
   return (
     <>
-      {location === "/updateevent" && <EventSelect />}
+      {location === "/updateevent" && <EventSelect events={events} />}
       <form>
         {location === "/newevent" ? (
           <h2>Add Event</h2>
