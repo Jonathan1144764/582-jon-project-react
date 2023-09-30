@@ -38,6 +38,21 @@ export default function EventForm() {
       });
   }
 
+  function handleSelectEvent(e) {
+    for (let i = 0; i < events.length; i++) {
+      if (events[i].eventName === e.target.value) {
+        document.querySelector("#event-name-input").value = events[i].eventName;
+        document.querySelector("#parks").value = events[i].eventLocation;
+        document.querySelector("#start-date-input").value =
+          events[i].eventStartDate;
+        document.querySelector("#end-date-input").value =
+          events[i].eventEndDate;
+        document.querySelector("#event-description-input").value =
+          events[i].eventDescription;
+      }
+    }
+  }
+
   async function handleSubmitNewEvent() {
     let newId = events[events.length - 1].id + 1;
     let name = document.querySelector("#event-name-input").value;
@@ -83,7 +98,9 @@ export default function EventForm() {
 
   return (
     <>
-      {location === "/updateevent" && <EventSelect events={events} />}
+      {location === "/updateevent" && (
+        <EventSelect events={events} handleSelectEvent={handleSelectEvent} />
+      )}
       <form>
         {location === "/newevent" ? (
           <h2>Add Event</h2>

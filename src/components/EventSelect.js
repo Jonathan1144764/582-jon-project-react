@@ -1,8 +1,8 @@
-export default function EventSelect({ events }) {
+export default function EventSelect({ events, handleSelectEvent }) {
   return (
     <>
       <label htmlFor="events">Select event: </label>
-      <select name="events" id="events">
+      <select name="events" id="events" onChange={handleSelectEvent}>
         <option></option>
         {events.map((event) => {
           return (
