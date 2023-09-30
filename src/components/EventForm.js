@@ -10,7 +10,8 @@ import EventSelect from "./EventSelect";
 export default function EventForm() {
   const [parks, setParks] = useState([]);
   const [events, setEvents] = useState([]);
-  //   const [selectedEvent, setSelectedEvent] = useState({});
+  const [selectedEvent, setSelectedEvent] = useState({});
+
   let location = useLocation().pathname.substring(6);
 
   useEffect(() => {
@@ -41,6 +42,7 @@ export default function EventForm() {
   function handleSelectEvent(e) {
     for (let i = 0; i < events.length; i++) {
       if (events[i].eventName === e.target.value) {
+        setSelectedEvent(events[i]);
         document.querySelector("#event-name-input").value = events[i].eventName;
         document.querySelector("#parks").value = events[i].eventLocation;
         document.querySelector("#start-date-input").value =
@@ -88,6 +90,40 @@ export default function EventForm() {
     handleFormClear();
   }
 
+  async function handleUpdateEvent() {
+    let name = document.querySelector("#event-name-input").value;
+    let location = document.querySelector("#parks").value;
+    let startDate = document.querySelector("#start-date-input").value;
+    let endDate = document.querySelector("#end-date-input").value;
+    let description = document.querySelector("#event-description-input").value;
+
+    let updatedEvent = {
+      id: selectedEvent.id,
+      eventName: name,
+      eventLocation: location,
+      eventStartDate: startDate,
+      eventEndDate: endDate,
+      eventDescription: description,
+    };
+
+    try {
+      await fetch(
+        "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/updateevent",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedEvent),
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+
+    handleFormClear();
+  }
+
   function handleFormClear() {
     document.querySelector("#event-name-input").value = "";
     document.querySelector("#parks").value = "";
@@ -112,7 +148,10 @@ export default function EventForm() {
         <EventDatesInputs />
         <EventDescriptionInput />
       </form>
-      <SubmitEventButton handleSubmitNewEvent={handleSubmitNewEvent} />
+      <SubmitEventButton
+        handleSubmitNewEvent={handleSubmitNewEvent}
+        handleUpdateEvent={handleUpdateEvent}
+      />
     </>
   );
 }
