@@ -122,6 +122,8 @@ export default function EventForm() {
     }
 
     handleFormClear();
+    handleSelectClear();
+    handleFetchEvents();
   }
 
   function handleFormClear() {
@@ -130,6 +132,10 @@ export default function EventForm() {
     document.querySelector("#start-date-input").value = "";
     document.querySelector("#end-date-input").value = "";
     document.querySelector("#event-description-input").value = "";
+  }
+
+  function handleSelectClear() {
+    document.querySelector("#events").value = "";
   }
 
   return (
