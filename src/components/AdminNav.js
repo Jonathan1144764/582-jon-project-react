@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function AdminNav() {
-  function handleFormClear() {
+  function handleParkFormClear() {
     document.querySelector("#park-name-input").value = "";
     document.querySelector("#park-image-input").value = "";
     if ((document.querySelector('input[name="status"]').checked = true)) {
@@ -13,16 +13,28 @@ export default function AdminNav() {
     document.querySelector("#playground").value = 0;
   }
 
+  function handleEventFormClear() {
+    document.querySelector("#event-name-input").value = "";
+    document.querySelector("#parks").value = "";
+    document.querySelector("#start-date-input").value = "";
+    document.querySelector("#end-date-input").value = "";
+    document.querySelector("#event-description-input").value = "";
+  }
+
   return (
     <nav className="admin-nav">
-      <Link onClick={handleFormClear} to="newpark">
+      <Link onClick={handleParkFormClear} to="newpark">
         Add park
       </Link>
-      <Link onClick={handleFormClear} to="updatepark">
+      <Link onClick={handleParkFormClear} to="updatepark">
         Update/Delete park
       </Link>
-      <Link to="newevent">Add event</Link>
-      <Link to="updateevent">Update/Delete event</Link>
+      <Link onClick={handleEventFormClear} to="newevent">
+        Add event
+      </Link>
+      <Link onClick={handleEventFormClear} to="updateevent">
+        Update/Delete event
+      </Link>
     </nav>
   );
 }
