@@ -1,13 +1,17 @@
 export default function SubmitEventButton({
+  location,
   handleSubmitNewEvent,
   handleUpdateEvent,
   handleDeleteEvent,
 }) {
-  return (
-    <>
-      <button onClick={handleSubmitNewEvent}>Submit</button>
-      <button onClick={handleUpdateEvent}>Update</button>
-      <button onClick={handleDeleteEvent}>Delete</button>
-    </>
-  );
+  if (location === "/newevent") {
+    return <button onClick={handleSubmitNewEvent}>Submit</button>;
+  } else {
+    return (
+      <>
+        <button onClick={handleUpdateEvent}>Update</button>
+        <button onClick={handleDeleteEvent}>Delete</button>
+      </>
+    );
+  }
 }

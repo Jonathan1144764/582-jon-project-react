@@ -181,6 +181,7 @@ export default function ParkForm() {
         </div>
       </form>
       <SubmitParkButton
+        location={location}
         handleSubmitNewPark={handleSubmitNewPark}
         handleUpdatePark={handleUpdatePark}
         handleDeletePark={handleDeletePark}

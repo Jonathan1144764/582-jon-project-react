@@ -179,6 +179,7 @@ export default function EventForm() {
         <EventDescriptionInput />
       </form>
       <SubmitEventButton
+        location={location}
         handleSubmitNewEvent={handleSubmitNewEvent}
         handleUpdateEvent={handleUpdateEvent}
         handleDeleteEvent={handleDeleteEvent}
