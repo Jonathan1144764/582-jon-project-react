@@ -88,6 +88,7 @@ export default function EventForm() {
     }
 
     handleFormClear();
+    handleFetchEvents();
   }
 
   async function handleUpdateEvent() {
