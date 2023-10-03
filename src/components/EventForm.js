@@ -127,6 +127,29 @@ export default function EventForm() {
     handleFetchEvents();
   }
 
+  async function handleDeleteEvent() {
+    let eventId = selectedEvent.id;
+
+    try {
+      await fetch(
+        "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/admin/updateevent",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: eventId }),
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+
+    handleFormClear();
+    handleSelectClear();
+    handleFetchEvents();
+  }
+
   function handleFormClear() {
     document.querySelector("#event-name-input").value = "";
     document.querySelector("#parks").value = "";
@@ -158,6 +181,7 @@ export default function EventForm() {
       <SubmitEventButton
         handleSubmitNewEvent={handleSubmitNewEvent}
         handleUpdateEvent={handleUpdateEvent}
+        handleDeleteEvent={handleDeleteEvent}
       />
     </>
   );
