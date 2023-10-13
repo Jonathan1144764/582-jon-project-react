@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import ParkForm from "./components/ParkForm";
 import EventForm from "./components/EventForm";
+import Public from "./pages/Public";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="newevent" element={<EventForm />} />
             <Route path="updateevent" element={<EventForm />} />
           </Route>
+          <Route path="public" element={<Public />} />
         </Routes>
       </BrowserRouter>
     </>
