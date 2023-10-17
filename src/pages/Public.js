@@ -1,9 +1,13 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import MainHeader from "../components/MainHeader";
 import ViewBookmarksButton from "../components/ViewBookmarksButton";
+import BookmarksList from "../components/BookmarksList";
 
 export default function Public() {
   const { user } = useSelector((store) => store.user);
+
+  const [isShown, setIsShown] = useState(false);
 
   async function bookmarksView() {
     console.log(user);
@@ -15,6 +19,7 @@ export default function Public() {
       .then((json) => {
         for (let profile of json) {
           if (profile.username === user) {
+            setIsShown(true);
             console.log(profile.bookmarkedEvents);
           }
         }
@@ -28,6 +33,7 @@ export default function Public() {
         <div className="container">
           <h2>See what's up at your local parks</h2>
           <ViewBookmarksButton bookmarksView={bookmarksView} />
+          <BookmarksList isShown={isShown} />
         </div>
       </section>
     </>
