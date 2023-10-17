@@ -9,6 +9,10 @@ export default function Public() {
 
   const [isShown, setIsShown] = useState(false);
 
+  function exitWindow() {
+    setIsShown(false);
+  }
+
   async function bookmarksView() {
     console.log(user);
 
@@ -33,7 +37,7 @@ export default function Public() {
         <div className="container">
           <h2>See what's up at your local parks</h2>
           <ViewBookmarksButton bookmarksView={bookmarksView} />
-          <BookmarksList isShown={isShown} />
+          <BookmarksList isShown={isShown} exitWindow={exitWindow} />
         </div>
       </section>
     </>
