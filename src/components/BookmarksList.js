@@ -1,6 +1,7 @@
 import ExitWindow from "./ExitWindow";
 
-export default function BookmarksList({ isShown, exitWindow }) {
+export default function BookmarksList({ isShown, exitWindow, userEvents }) {
+  console.log(userEvents);
   if (isShown) {
     return (
       <div className="bookmark-window">
