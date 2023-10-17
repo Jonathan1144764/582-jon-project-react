@@ -11,9 +11,11 @@ export default function Public() {
   const [isShown, setIsShown] = useState(false);
   const [userEvents, setUserEvents] = useState([]);
   const [allParks, setAllParks] = useState([]);
+  const [allEvents, setAllEvents] = useState([]);
 
   useEffect(() => {
     handleFetchParks();
+    handleFetchEvents();
   }, []);
 
   async function handleFetchParks() {
@@ -23,6 +25,16 @@ export default function Public() {
       .then((response) => response.json())
       .then((json) => {
         setAllParks(json);
+      });
+  }
+
+  async function handleFetchEvents() {
+    await fetch(
+      "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/public/event"
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setAllEvents(json);
       });
   }
 
@@ -58,7 +70,7 @@ export default function Public() {
             exitWindow={exitWindow}
             userEvents={userEvents}
           />
-          <ParkList allParks={allParks} />
+          <ParkList allParks={allParks} allEvents={allEvents} />
         </div>
       </section>
     </>
