@@ -1,17 +1,29 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MainHeader from "../components/MainHeader";
 import ViewBookmarksButton from "../components/ViewBookmarksButton";
 import BookmarksList from "../components/BookmarksList";
+import ParkList from "../components/ParkList";
 
 export default function Public() {
   const { user } = useSelector((store) => store.user);
 
   const [isShown, setIsShown] = useState(false);
   const [userEvents, setUserEvents] = useState([]);
+  const [allParks, setAllParks] = useState([]);
 
-  function exitWindow() {
-    setIsShown(false);
+  useEffect(() => {
+    handleFetchParks();
+  }, []);
+
+  async function handleFetchParks() {
+    await fetch(
+      "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/public"
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setAllParks(json);
+      });
   }
 
   async function bookmarksView() {
@@ -30,6 +42,10 @@ export default function Public() {
       });
   }
 
+  function exitWindow() {
+    setIsShown(false);
+  }
+
   return (
     <>
       <MainHeader />
@@ -42,6 +58,7 @@ export default function Public() {
             exitWindow={exitWindow}
             userEvents={userEvents}
           />
+          <ParkList allParks={allParks} />
         </div>
       </section>
     </>
