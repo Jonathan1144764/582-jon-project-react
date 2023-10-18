@@ -1,3 +1,3 @@
-export default function AddBookmark(props) {
-  return <button onClick={props.handleBookmarkEvent}>Bookmark</button>;
+export default function AddBookmark({ handleBookmarkEvent }) {
+  return <button onClick={handleBookmarkEvent}>Bookmark</button>;
 }
