@@ -6,17 +6,6 @@ export default function ManageUsers() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    // async function handleLoadUsers() {
-    //   const allUsers = await handleFetchUsers();
-    //   setUsers(allUsers);
-    // }
-    // const handleLoadUsers = async () => {
-    //   const allUsers = await handleFetchUsers();
-    //   setUsers(allUsers);
-    // };
-
-    // handleLoadUsers();
-
     handleFetchUsers();
   }, []);
 
@@ -24,7 +13,6 @@ export default function ManageUsers() {
     await fetch("https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/")
       .then((response) => response.json())
       .then((json) => {
-        // return json;
         setUsers(json);
       });
   }
@@ -56,14 +44,6 @@ export default function ManageUsers() {
     }
     handleFetchUsers();
   }
-
-  // const handleFetchUsers = async () => {
-  //   const res = await fetch(
-  //     "https://special-doodle-r949xwgp9jpf5w56-3000.app.github.dev/"
-  //   );
-  //   const userData = await res.json();
-  //   return userData;
-  // };
 
   return (
     <div className="user-management">
