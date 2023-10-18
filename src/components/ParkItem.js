@@ -17,7 +17,7 @@ export default function ParkItem({ park, allEvents }) {
     setParkEvents(parkEventsList);
   }
 
-  function exitWindow() {
+  function handleExitWindow() {
     setIsShown(false);
   }
 
@@ -40,7 +40,7 @@ export default function ParkItem({ park, allEvents }) {
       </button>
       {isShown === true && (
         <div className="park-events">
-          <ExitWindow exitWindow={exitWindow} />
+          <ExitWindow handleExitWindow={handleExitWindow} />
           {parkEvents.map((event) => {
             return <ParkEvents key={event.id} event={event} />;
           })}

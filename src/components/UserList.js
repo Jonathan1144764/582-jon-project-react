@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { logUser } from "../features/user/userSlice";
+import { handleLogUser } from "../features/user/userSlice";
 
 export default function UserList({ users }) {
   const dispatch = useDispatch();
@@ -7,7 +7,11 @@ export default function UserList({ users }) {
   return (
     <>
       <label htmlFor="users">Login: </label>
-      <select onChange={() => dispatch(logUser())} name="users" id="users-list">
+      <select
+        onChange={() => dispatch(handleLogUser())}
+        name="users"
+        id="users-list"
+      >
         <option></option>
         {users.map((user) => {
           return (

@@ -38,7 +38,7 @@ export default function Public() {
       });
   }
 
-  async function bookmarksView() {
+  async function handleBookmarksView() {
     setIsShown(true);
 
     await fetch(
@@ -54,7 +54,7 @@ export default function Public() {
       });
   }
 
-  function exitWindow() {
+  function handleExitWindow() {
     setIsShown(false);
   }
 
@@ -64,10 +64,10 @@ export default function Public() {
       <section className="public-view">
         <div className="container">
           <h2>See what's up at your local parks</h2>
-          <ViewBookmarksButton bookmarksView={bookmarksView} />
+          <ViewBookmarksButton handleBookmarksView={handleBookmarksView} />
           <BookmarksList
             isShown={isShown}
-            exitWindow={exitWindow}
+            handleExitWindow={handleExitWindow}
             userEvents={userEvents}
           />
           <ParkList allParks={allParks} allEvents={allEvents} />

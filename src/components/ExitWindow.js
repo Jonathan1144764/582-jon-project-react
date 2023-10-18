@@ -1,6 +1,6 @@
-export default function ExitWindow({ exitWindow }) {
+export default function ExitWindow({ handleExitWindow }) {
   return (
-    <button className="exit-window" onClick={exitWindow}>
+    <button className="exit-window" onClick={handleExitWindow}>
       X
     </button>
   );

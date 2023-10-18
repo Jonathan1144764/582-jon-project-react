@@ -1,6 +1,6 @@
-export default function ViewBookmarksButton({ bookmarksView }) {
+export default function ViewBookmarksButton({ handleBookmarksView }) {
   return (
-    <button className="view-bookmarks-btn" onClick={bookmarksView}>
+    <button className="view-bookmarks-btn" onClick={handleBookmarksView}>
       View your events
     </button>
   );

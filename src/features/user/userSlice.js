@@ -6,12 +6,12 @@ const userSlice = createSlice({
     user: "",
   },
   reducers: {
-    logUser: (state) => {
+    handleLogUser: (state) => {
       state.user = document.querySelector("#users-list").value;
     },
   },
 });
 
-export const { logUser } = userSlice.actions;
+export const { handleLogUser } = userSlice.actions;
 
 export default userSlice.reducer;
