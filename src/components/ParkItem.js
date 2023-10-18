@@ -1,9 +1,10 @@
 import { useState } from "react";
 import ExitWindow from "./ExitWindow";
+import ParkEvents from "./ParkEvents";
 
 export default function ParkItem({ park, allEvents }) {
   const [isShown, setIsShown] = useState(false);
-  const [parkEvent, setParkEvents] = useState([]);
+  const [parkEvents, setParkEvents] = useState([]);
 
   function handleShowEvents() {
     let parkEventsList = [];
@@ -40,6 +41,9 @@ export default function ParkItem({ park, allEvents }) {
       {isShown === true && (
         <div className="park-events">
           <ExitWindow exitWindow={exitWindow} />
+          {parkEvents.map((event) => {
+            return <ParkEvents key={event.id} event={event} />;
+          })}
         </div>
       )}
     </div>
