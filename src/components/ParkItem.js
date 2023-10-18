@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ExitWindow from "./ExitWindow";
 
 export default function ParkItem({ park, allEvents }) {
   const [isShown, setIsShown] = useState(false);
@@ -15,6 +16,10 @@ export default function ParkItem({ park, allEvents }) {
     setParkEvents(parkEventsList);
   }
 
+  function exitWindow() {
+    setIsShown(false);
+  }
+
   return (
     <div className="park">
       <div
@@ -29,6 +34,14 @@ export default function ParkItem({ park, allEvents }) {
         <li>Chalets: {park.parkChalets}</li>
         <li>Playgrounds: {park.parkPlaygrounds}</li>
       </ul>
+      <button className="show-events-btn" onClick={handleShowEvents}>
+        See events
+      </button>
+      {isShown === true && (
+        <div className="park-events">
+          <ExitWindow exitWindow={exitWindow} />
+        </div>
+      )}
     </div>
   );
 }
