@@ -26,12 +26,15 @@ export default function AdminNav() {
       <Link onClick={handleParkFormClear} to="newpark">
         Add park
       </Link>
+      <span> | </span>
       <Link onClick={handleParkFormClear} to="updatepark">
         Update/Delete park
       </Link>
+      <span> | </span>
       <Link onClick={handleEventFormClear} to="newevent">
         Add event
       </Link>
+      <span> | </span>
       <Link onClick={handleEventFormClear} to="updateevent">
         Update/Delete event
       </Link>
