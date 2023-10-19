@@ -163,3 +163,226 @@ header a:hover {
   border: 1px solid black;
   text-align: center;
 }
+
+.event-dates-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.public-view h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.view-bookmarks-btn {
+  padding: 5px 10px;
+  margin-bottom: 1rem;
+  background-color: #4a7c59;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.park-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+.park {
+  position: relative;
+}
+
+.show-events-btn {
+  padding: 5px 10px;
+  background-color: #4a7c59;
+  border: none;
+  color: #fff;
+}
+
+.park-image {
+  height: 200px;
+  width: 175px;
+  background-size: cover;
+  background-position: center;
+}
+
+.park-events {
+  position: absolute;
+  top: 0;
+  background-color: #4a7c59;
+  animation: fadein 0.08s linear;
+  animation-fill-mode: forwards;
+}
+
+.park-events p {
+  margin-bottom: 1rem;
+}
+
+.park-events p span {
+  display: block;
+}
+
+.park-events .exit-window {
+  margin: 5px 8px 0 0;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  float: right;
+}
+
+.park-event {
+  padding: 10px 15px;
+}
+
+.park-event button {
+  padding: 3px 5px;
+  background-color: #96c3f2;
+  border: none;
+  border-radius: 10px;
+}
+
+.park-event:not(:last-of-type) {
+  border-bottom: 1px solid black;
+}
+
+.bookmark-window {
+  width: 65%;
+  background-color: #4a7c59;
+  position: absolute;
+  z-index: 10;
+  animation: fadein 0.08s linear;
+  animation-fill-mode: forwards;
+}
+
+.bookmark-window h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.bookmark-window .exit-window {
+  margin-top: -2rem;
+  margin-right: 5px;
+  background: none;
+  border: none;
+  float: right;
+}
+
+.bookmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+.bookmarks-grid h3 {
+  text-align: left;
+}
+
+.bookmarks-grid .event-time {
+  display: block;
+}
+
+#users-list {
+  padding: 3px 5px;
+  background-color: #96c3f2;
+  border: none;
+}
+
+#park-name-input,
+#park-image-input {
+  padding: 3px 5px;
+  outline: none;
+  display: block;
+}
+
+#event-name-input {
+  display: block;
+  margin: auto;
+  margin-bottom: 0.5rem;
+}
+
+#start-date-input {
+  margin: auto;
+}
+
+#end-date-input {
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+#event-description-input {
+  margin: auto;
+  display: block;
+  outline: none;
+  resize: none;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  section {
+    padding: 40px 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header nav {
+    margin: 0;
+  }
+
+  .header-flex {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .name-image-inputs-wrapper {
+    justify-content: center;
+  }
+
+  .park-form .input-wrapper {
+    margin: 0 1rem;
+  }
+
+  .park-radio-inputs .input-wrapper {
+    width: fit-content;
+  }
+
+  .park-number-inputs .input-wrapper {
+    text-align: center;
+  }
+
+  .event-dates-inputs {
+    flex-direction: row;
+  }
+
+  #start-date-input,
+  #end-date-input {
+    margin: 0 0.3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .park-radio-inputs {
+    justify-content: center;
+  }
+
+  .park-radio-inputs .input-wrapper {
+    margin: 0 0.5rem;
+  }
+
+  .park-number-inputs {
+    flex-direction: column;
+    align-items: center;
+  }
+}
