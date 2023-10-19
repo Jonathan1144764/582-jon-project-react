@@ -211,6 +211,7 @@ header a:hover {
 .park-events {
   position: absolute;
   top: 0;
+  z-index: 10;
   background-color: #4a7c59;
   animation: fadein 0.08s linear;
   animation-fill-mode: forwards;
