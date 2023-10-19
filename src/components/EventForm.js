@@ -167,7 +167,7 @@ export default function EventForm() {
       {location === "/updateevent" && (
         <EventSelect events={events} handleSelectEvent={handleSelectEvent} />
       )}
-      <form>
+      <form className="event-form">
         {location === "/newevent" ? (
           <h2>Add Event</h2>
         ) : (

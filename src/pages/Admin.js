@@ -9,15 +9,15 @@ export default function Admin() {
   return (
     <>
       <MainHeader />
-      <AdminNav />
-      {location === "/admin" && (
-        <>
-          <h2>Welcome admin!</h2>
-          <p>Let's get to work!</p>
-        </>
-      )}
-      <section className="admin-dashboard">
+      <section className="admin-control-panel">
         <div className="container">
+          <AdminNav />
+          {location === "/admin" && (
+            <>
+              <h2>Welcome admin!</h2>
+              <p>Let's get to work!</p>
+            </>
+          )}
           <Outlet />
         </div>
       </section>
