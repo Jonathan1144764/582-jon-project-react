@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="https://jonathan64.web582.com/web-framework/582-jon-react-build//"
+            path="https://jonathan64.web582.com/web-framework/582-jon-react-build/"
             element={<Home />}
           />
           <Route path="admin" element={<Admin />}>
