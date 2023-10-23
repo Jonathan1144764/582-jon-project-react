@@ -10,7 +10,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="https://jonathan64.web582.com/web-framework/582-jon-react-build//"
+            element={<Home />}
+          />
           <Route path="admin" element={<Admin />}>
             <Route path="newpark" element={<ParkForm />} />
             <Route path="updatepark" element={<ParkForm />} />
